@@ -128,10 +128,26 @@ const CheckoutPage = () => {
   const handlePlaceOrder = async () => {
     const total = cart.reduce((sum, product) => sum + product.price, 0);
     const orderDetails = { ...formData, cart, total };
-
     navigate('/payment')
+    try {
+      const response = await fetch('http://localhost:5000/api/place-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderDetails),
+      });
+  
+      if (response.ok) {
+        clearCart();
+        setOrderPlaced(true);
+        ; // Navigate to payment page
+      } else {
+        console.error('Order placement failed', await response.text());
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
-
+  
   return (
     <>
       <GlobalStyle />
