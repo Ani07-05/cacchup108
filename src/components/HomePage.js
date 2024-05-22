@@ -42,6 +42,7 @@ const NavItem = styled.a`
   color: white;
   text-decoration: none;
   font-size: 1.2em;
+  font-weight: 700;
   cursor: pointer;
   transition: color 0.3s;
 
@@ -117,9 +118,33 @@ const ProductImage = styled.img`
   border-radius: 10px;
 `;
 
+const BuyNowButton = styled.button`
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin-top: 10px;
+
+  &:hover {
+    background: white;
+    color: black;
+  }
+`;
+
 const handleNavClick = (id) => {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 };
+
+const Paragraph = styled.p`
+  font-size: 1.2em;
+  line-height: 1.6;
+  font-family: 'Georgia', serif;
+  color: #f0f0f0;
+  max-width: 800px;
+  margin: 1em 0;
+`;
 
 function HomePage() {
   const navigate = useNavigate();
@@ -150,57 +175,62 @@ function HomePage() {
       </TitleSection>
       <Section id="about">
         <h2>About Us</h2>
-        <p>Cacchup is a foldable bag that folds or unfolds into preferred sizes, serving multiple purposes to every customer of society.
-           Derived from the Sanskrit word "Kacchup" meaning tortoise, the name 'Cachhup' represents the tortoise form of Lord Vishnu. 
-           This foldable bag mirrors the tortoise's ability to expand and contract its limbs, symbolizing adaptability. 
-           The bag's durability echoes the long lifespan of the tortoise, representing the product's long-lasting quality.
-        </p>
+        <Paragraph>
+          Cacchup is a foldable bag that folds or unfolds into preferred sizes, serving multiple purposes to every customer of society.
+          Derived from the Sanskrit word "Kacchup" meaning tortoise, the name 'Cachhup' represents the tortoise form of Lord Vishnu. 
+          This foldable bag mirrors the tortoise's ability to expand and contract its limbs, symbolizing adaptability. 
+          The bag's durability echoes the long lifespan of the tortoise, representing the product's long-lasting quality.
+        </Paragraph>
       </Section>
       <ProductsSection id="products">
         <ProductCard>
           <h3>Solid-Colour</h3>
           <ProductImage src="/assets/prod1.jpeg" alt="Product 1" />
-          <button onClick={() => navigate('/product1')}>Buy Now</button>
+          <BuyNowButton onClick={() => navigate('/product1')}>Buy Now</BuyNowButton>
         </ProductCard>
         <ProductCard>
           <h3>Printed</h3>
           <ProductImage src="/assets/prod2.jpeg" alt="Product 2" />
-          <button onClick={() => navigate('/product2')}>Buy Now</button>
+          <BuyNowButton onClick={() => navigate('/product2')}>Buy Now</BuyNowButton>
         </ProductCard>
         <ProductCard>
           <h3>Non-foldable</h3>
           <ProductImage src="/assets/prod3.jpeg" alt="Product 3" />
-          <button onClick={() => navigate('/product3')}>Buy Now</button>
+          <BuyNowButton onClick={() => navigate('/product3')}>Buy Now</BuyNowButton>
         </ProductCard>
       </ProductsSection>
       <Section id="artisans">
         <h2>Artisans</h2>
-        <p>Artisan Support: Partnering with Shobha Kala Creations, a social enterprise connecting local artisans and tailors, to provide a platform for these skilled craftspeople to display their talents.
-        Cultural Preservation: We emphasize the cultural and artistic significance of these artisans' work, ensuring their heritage is not lost.
-        Empowerment: By supporting these artisans, we contribute to the preservation of India's rich cultural legacy and offer them sustainable income opportunities.
-        Ethical Production: Every Cachhup bag is meticulously handcrafted by our skilled artisans, resulting in distinctive, ethically produced items</p>
+        <Paragraph>
+          Artisan Support: Partnering with Shobha Kala Creations, a social enterprise connecting local artisans and tailors, to provide a platform for these skilled craftspeople to display their talents.
+          Cultural Preservation: We emphasize the cultural and artistic significance of these artisans' work, ensuring their heritage is not lost.
+          Empowerment: By supporting these artisans, we contribute to the preservation of India's rich cultural legacy and offer them sustainable income opportunities.
+          Ethical Production: Every Cachhup bag is meticulously handcrafted by our skilled artisans, resulting in distinctive, ethically produced items.
+        </Paragraph>
       </Section>
       <Section id="sustainability">
         <h2>Sustainability</h2>
-        <p>It's astonishing to learn that a staggering 11 million tons of textile waste are added to landfills each year worldwide, enough to fill the Empire State Building nearly twice. In India alone, the textile waste generation reaches an alarming 7,793 kilotonnes annually, equivalent to the weight of approximately 100,000 elephants. At Cachhup, we strive to make a positive change by transforming these waste materials into our beautiful, eco-friendly bags.
-          (https://www.businesswaste.co.uk/your-waste/textile-recycling/fashion-waste-facts-and-statistics/#:~:text=It's%20also%20led%20to%20unstylish,million%20tonnes%20of%20textile%20waste. “Fashion waste statistics”). By doing so, we aim to contribute to a more sustainable future and reduce the environmental impact caused by textile waste.</p>
+        <Paragraph>
+          It's astonishing to learn that a staggering 11 million tons of textile waste are added to landfills each year worldwide, enough to fill the Empire State Building nearly twice. In India alone, the textile waste generation reaches an alarming 7,793 kilotonnes annually, equivalent to the weight of approximately 100,000 elephants. At Cachhup, we strive to make a positive change by transforming these waste materials into our beautiful, eco-friendly bags.
+          <a href="https://www.businesswaste.co.uk/your-waste/textile-recycling/fashion-waste-facts-and-statistics/#:~:text=It's%20also%20led%20to%20unstylish,million%20tonnes%20of%20textile%20waste.">“Fashion waste statistics”</a>. By doing so, we aim to contribute to a more sustainable future and reduce the environmental impact caused by textile waste.
+        </Paragraph>
       </Section>
       <Section id="certifications">
         <h2>Certifications</h2>
-        <p>Threads, RUDRA, Green Alliance</p>
+        <Paragraph>Threads, RUDRA, Green Alliance</Paragraph>
       </Section>
       <Section id="FAQ">
         <h2>FAQ</h2>
-        <p>This is the FAQ section.</p>
+        <Paragraph>This is the FAQ section.</Paragraph>
       </Section>
       <Section id="contact">
         <h2>Contact Us</h2>
-        <p>Email: services.cacchup@gmail.com
-           Instagram: @cacchup.now
-        </p>
+        <Paragraph>Email: services.cacchup@gmail.com</Paragraph>
+        <Paragraph>Instagram: @cacchup.now</Paragraph>
       </Section>
     </Container>
   );
 }
 
 export default HomePage;
+  
